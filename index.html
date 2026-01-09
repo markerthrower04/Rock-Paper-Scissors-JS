@@ -19,9 +19,17 @@
     <div class="text-center mt-3">
       <h1>WELCOME TO ROCK PAPER SCISSORS GAME!</h1>
     </div>
+    <div class="text-center mt-3">
+      <button id="playAgain-button" class="btn btn-warning" style="display:none;" onclick="location.reload()">
+        Play Again!
+      </button>
+    </div>
     <div id="message" class="text-center h5"></div>
     <div class="text-center m-5" id="start">
-      <input type="submit" id="submit" class="btn btn-dark" value="Get Started!">
+      <h2>Select Game Mode</h2>
+      <input type="submit" class="game-mode btn btn-dark" value="best out of 5" data-rounds="5" onclick="displayBoards()">
+      <input type="submit" class="game-mode btn btn-dark" value="Best out of 3" data-rounds="3" onclick="displayBoards()">
+      <input type="submit" class="game-mode btn btn-dark" value="Best out of 1" data-rounds="1" onclick="displayBoards()">
     </div>
     <div id="boards" class="boards">
       <div class="row">        
@@ -65,8 +73,8 @@
                 <li class="list-group-item list-group-item-dark"><i class="fas fa-hand-rock"></i> Rock beats Scissors.</li>
                 <li class="list-group-item list-group-item-dark"><i class="fas fa-hand-scissors"></i> Scissors beats Paper.</li>
                 <li class="list-group-item list-group-item-dark"><i class="fas fa-hand-paper"></i> Paper beats Rock.</li>
-                <li class="list-group-item list-group-item-dark">First player to win 5 rounds is the winner.</li>
-                <li class="list-group-item list-group-item-dark">Play again!</li>
+                <li class="list-group-item list-group-item-dark">First player to win 5 rounds, 3 rounds, or 1 round is the winner depending on the game mode you select.</li>
+                <li class="list-group-item list-group-item-dark">Click 'Play Again!' button to start a new game.</li>
               </ul>
             </div>
             <div class="modal-footer">

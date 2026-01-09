@@ -39,3 +39,8 @@ footer {
   bottom: 0px;
   width: 100%;
 }
+#playAgain-button{
+  background: linear-gradient(to right, #ff9710, #e1f00d);
+  border: none;
+  font-weight: bold;
+}
