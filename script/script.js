@@ -1,14 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
-let maxRounds = 5;
-let gameActive = false;
-
 const pScore = document.getElementById('playerScore');
 const cScore = document.getElementById('computerScore');
 const compSelect = document.getElementById('computerSelect');
 const playerSelect = document.getElementById('playerSelect');
 const message = document.getElementById('message');
-
+let gameActive = false;
 
 function computerPlay() {
   let arr = [1, 2, 3];
@@ -101,19 +98,15 @@ function scoreBoard(result) {
 }
 
 function endGame() {
-  if (playerScore === maxRounds || computerScore === maxRounds) {
-    return true;
-  } else {
-    return false;
+  if (playerScore === 5 || computerScore === 5) {
+    return true
   }
+  return false;
 }
-
-
 
 function whoWon() {
   if (endGame()) {
-    document.getElementById('playAgain-button').style.display = 'inline-block';
-    if (playerScore === maxRounds) {
+    if (playerScore === 5) {
       message.innerText = 'Player is the Winner! Congratulations!'
     } else {
       message.innerText = 'Computer is the Winner! You Lose!'
@@ -130,10 +123,14 @@ function reset() {
       playerSelect.innerHTML = '';
       pScore.innerText = playerScore;
       cScore.innerText = computerScore;
+      message.innerText = 'Play Again!';
       gameActive = false;
     }, 3000);    
   }
 }
+
+const submit = document.getElementById('submit');
+submit.addEventListener('click', displayBoards.bind(this));
 
 function displayBoards() {
   const start = document.getElementById('start');
@@ -147,16 +144,6 @@ function displayBoards() {
 const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
-
-const buttons = document.getElementsByClassName('game-mode');
-
-for (let btn of buttons) {
-  btn.addEventListener('click', function() {
-    maxRounds = Number(btn.getAttribute('data-rounds')); 
-    displayBoards();
-  });
-}
-
 
 rock.addEventListener('click', gameFlow.bind(this, rock.id));
 paper.addEventListener('click', gameFlow.bind(this, paper.id));
